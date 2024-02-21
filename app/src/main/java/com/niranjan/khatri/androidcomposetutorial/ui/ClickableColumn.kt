@@ -20,6 +20,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.niranjan.androidtutorials.mvc.controller.TodoMVCActivity
 import com.niranjan.khatri.androidcomposetutorial.mvp.ShoppingMVPActivity
+import com.niranjan.khatri.androidcomposetutorial.mvvm.DogMVVMActivity
 
 /**
  * @author NIRANJAN KHATRI
@@ -64,7 +65,8 @@ fun FeatureItemView(context: Context, featureItem: FeatureItem) {
 private fun featureList(): List<FeatureItem> {
     return listOf(
         FeatureItem("MVC", "Model View Controller Demo"),
-        FeatureItem("MVP", "Model View Presenter Demo")
+        FeatureItem("MVP", "Model View Presenter Demo"),
+        FeatureItem("MVVM", "Model View ViewModel Demo")
     )
 }
 
@@ -75,6 +77,9 @@ private fun handleClick(context: Context, value: String){
         }
         "MVP" -> {
             context.startActivity(Intent(context, ShoppingMVPActivity::class.java))
+        }
+        "MVVM" -> {
+            context.startActivity(Intent(context, DogMVVMActivity::class.java))
         }
     }
 }

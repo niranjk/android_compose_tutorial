@@ -2,6 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <uses-permission android:name="android.permission.INTERNET"/>
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -25,6 +26,7 @@
         </activity>
         <activity android:name="com.niranjan.androidtutorials.mvc.controller.TodoMVCActivity"/>
         <activity android:name=".mvp.ShoppingMVPActivity"/>
+        <activity android:name=".mvvm.DogMVVMActivity"/>
     </application>
 
 </manifest>
