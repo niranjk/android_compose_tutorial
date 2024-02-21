@@ -27,6 +27,7 @@
         <activity android:name="com.niranjan.androidtutorials.mvc.controller.TodoMVCActivity"/>
         <activity android:name=".mvp.ShoppingMVPActivity"/>
         <activity android:name=".mvvm.DogMVVMActivity"/>
+        <activity android:name=".mvi.FactMVIActivity"/>
     </application>
 
 </manifest>
