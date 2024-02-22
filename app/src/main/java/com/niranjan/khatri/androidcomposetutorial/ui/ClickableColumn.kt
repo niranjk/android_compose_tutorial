@@ -19,6 +19,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.niranjan.androidtutorials.mvc.controller.TodoMVCActivity
+import com.niranjan.khatri.androidcomposetutorial.clean_architecture.CleanArchitectureActivity
 import com.niranjan.khatri.androidcomposetutorial.mvi.FactMVIActivity
 import com.niranjan.khatri.androidcomposetutorial.mvp.ShoppingMVPActivity
 import com.niranjan.khatri.androidcomposetutorial.mvvm.DogMVVMActivity
@@ -68,7 +69,8 @@ private fun featureList(): List<FeatureItem> {
         FeatureItem("MVC", "Model View Controller Demo"),
         FeatureItem("MVP", "Model View Presenter Demo"),
         FeatureItem("MVVM", "Model View ViewModel Demo"),
-        FeatureItem("MVI", "Model View Intent Demo")
+        FeatureItem("MVI", "Model View Intent Demo"),
+        FeatureItem("Clean Architecture", "Clean Architecture Demo"),
     )
 }
 
@@ -85,6 +87,9 @@ private fun handleClick(context: Context, value: String){
         }
         "MVI" -> {
             context.startActivity(Intent(context, FactMVIActivity::class.java))
+        }
+        "Clean Architecture" -> {
+            context.startActivity(Intent(context, CleanArchitectureActivity::class.java))
         }
     }
 }

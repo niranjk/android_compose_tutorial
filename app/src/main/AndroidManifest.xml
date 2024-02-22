@@ -28,6 +28,7 @@
         <activity android:name=".mvp.ShoppingMVPActivity"/>
         <activity android:name=".mvvm.DogMVVMActivity"/>
         <activity android:name=".mvi.FactMVIActivity"/>
+        <activity android:name=".clean_architecture.CleanArchitectureActivity"/>
     </application>
 
 </manifest>
