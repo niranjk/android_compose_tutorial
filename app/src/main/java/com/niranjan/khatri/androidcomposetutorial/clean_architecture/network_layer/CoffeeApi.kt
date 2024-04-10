@@ -9,11 +9,7 @@ import io.ktor.http.URLBuilder
 import io.ktor.serialization.kotlinx.json.json
 import kotlinx.serialization.json.Json
 
-/**
- * @author NIRANJAN KHATRI
- * @since 22/02/24
- * @version 1
- */
+
 object CoffeeApi {
     private const val baseUrl = "https://coffee.alexflipnote.dev/random.json"
     private val nonStrictJson = Json { isLenient = true; ignoreUnknownKeys = true }

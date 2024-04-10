@@ -1,3 +1,14 @@
 <resources>
     <string name="app_name">AndroidComposeTutorial</string>
+    <string name="text">Text</string>
+    <string name="text_field">TextField</string>
+    <string name="buttons">Buttons</string>
+    <string name="progress_indicators">Progress Indicators</string>
+    <string name="alert_dialog">Alert Dialog</string>
+    <string name="alert_dialog_title">Alert Dialog Title</string>
+    <string name="alert_dialog_message">Alert Dialog Message</string>
+    <string name="compose"> Compose </string>
+    <string name="email">Email:</string>
+    <string name="phone">Phone:</string>
+    <string name="confirm">Confirm:</string>
 </resources>

@@ -75,6 +75,11 @@ dependencies {
     implementation(libs.ktor.serialization.kotlinx.json)
     implementation(libs.ktor.client.android)
     implementation(libs.image.coil)
+
+    // Room
+    implementation(libs.room.ktx)
+    annotationProcessor(libs.room.compiler)
+    implementation(libs.room.runtime)
     // test
     implementation(libs.ktor.client.mock)
 }

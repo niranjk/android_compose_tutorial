@@ -10,20 +10,21 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import com.niranjan.khatri.androidcomposetutorial.ui.ClickableColumn
+import com.niranjan.khatri.androidcomposetutorial.jetfundamentals.app.ComposeFundamentalsApp
 import com.niranjan.khatri.androidcomposetutorial.ui.theme.AndroidComposeTutorialTheme
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContent {
+        // Setting the content
+        setContent { // Starting Point
             AndroidComposeTutorialTheme {
                 // A surface container using the 'background' color from the theme
                 Surface(
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    ClickableColumn(context = this)
+                    ComposeFundamentalsApp()
                 }
             }
         }

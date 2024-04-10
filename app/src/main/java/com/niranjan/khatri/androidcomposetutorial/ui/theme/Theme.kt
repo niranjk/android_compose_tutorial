@@ -10,10 +10,14 @@ import androidx.compose.material3.dynamicLightColorScheme
 import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.SideEffect
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalView
 import androidx.core.view.WindowCompat
+import com.niranjan.khatri.androidcomposetutorial.basics.App
 
 private val DarkColorScheme = darkColorScheme(
     primary = Purple80,
@@ -44,13 +48,14 @@ fun AndroidComposeTutorialTheme(
     dynamicColor: Boolean = true,
     content: @Composable () -> Unit
 ) {
+    val isDarkThemeEnabled = darkTheme || AppThemeSettings.isDarkThemeEnabled
     val colorScheme = when {
         dynamicColor && Build.VERSION.SDK_INT >= Build.VERSION_CODES.S -> {
             val context = LocalContext.current
             if (darkTheme) dynamicDarkColorScheme(context) else dynamicLightColorScheme(context)
         }
 
-        darkTheme -> DarkColorScheme
+        isDarkThemeEnabled -> DarkColorScheme
         else -> LightColorScheme
     }
     val view = LocalView.current
@@ -67,4 +72,11 @@ fun AndroidComposeTutorialTheme(
         typography = Typography,
         content = content
     )
+}
+
+/**
+ * Allows changing between light and a dark theme from the app's settings.
+ */
+object AppThemeSettings {
+    var isDarkThemeEnabled by mutableStateOf(false)
 }
