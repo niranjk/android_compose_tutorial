@@ -8,7 +8,12 @@
     <string name="alert_dialog_title">Alert Dialog Title</string>
     <string name="alert_dialog_message">Alert Dialog Message</string>
     <string name="compose"> Compose </string>
+    <string name="compose_name"> Compose %s</string>
     <string name="email">Email:</string>
     <string name="phone">Phone:</string>
     <string name="confirm">Confirm:</string>
+    <plurals name="items_found">
+        <item quantity="one">1 item found</item>
+        <item quantity="other">%d items found</item>
+    </plurals>
 </resources>

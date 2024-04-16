@@ -9,6 +9,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.Layout
 import androidx.compose.ui.res.colorResource
+import androidx.compose.ui.res.pluralStringResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
@@ -39,11 +40,38 @@ fun TextScreen() {
     }
 }
 
-@Preview(showBackground = true)
 @Composable
 fun MyText(){
     Text(
         text = stringResource(id = R.string.compose),
+        fontStyle = FontStyle.Italic,
+        color = colorResource(id = R.color.purple_200),
+        fontSize = 32.sp,
+        fontWeight = FontWeight.Bold
+    )
+}
+
+@Composable
+fun MyFormattedText(){
+    val name = "Ninja"
+    val formattedString = stringResource(id = R.string.compose_name, name)
+    Text(
+        text = formattedString,
+        fontStyle = FontStyle.Italic,
+        color = colorResource(id = R.color.purple_200),
+        fontSize = 32.sp,
+        fontWeight = FontWeight.Bold
+    )
+}
+
+@Preview(showBackground = true)
+@Composable
+fun MyPluralText(){
+    val itemCountOne = 1
+    val itemCountFive = 5
+    val message = pluralStringResource(id = R.plurals.items_found, count = itemCountFive)
+    Text(
+        text = message,
         fontStyle = FontStyle.Italic,
         color = colorResource(id = R.color.purple_200),
         fontSize = 32.sp,

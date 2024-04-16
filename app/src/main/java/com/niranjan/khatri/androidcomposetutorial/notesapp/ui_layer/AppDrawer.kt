@@ -187,7 +187,6 @@ fun AppDrawerPreview() {
     }
 }
 
-@Preview
 @Composable
 fun AppDrawerHeaderPreview() {
     AndroidComposeTutorialTheme {
@@ -195,7 +194,6 @@ fun AppDrawerHeaderPreview() {
     }
 }
 
-@Preview
 @Composable
 fun RouteScreenNavigationButtonPreview() {
     AndroidComposeTutorialTheme {
@@ -208,7 +206,7 @@ fun RouteScreenNavigationButtonPreview() {
     }
 }
 
-@Preview
+@Preview(showBackground = true)
 @Composable
 fun LightDarkThemeItemPreview() {
     AndroidComposeTutorialTheme {

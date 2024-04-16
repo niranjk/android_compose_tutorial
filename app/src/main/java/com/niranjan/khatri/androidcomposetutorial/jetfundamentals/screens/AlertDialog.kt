@@ -1,5 +1,7 @@
 package com.niranjan.khatri.androidcomposetutorial.jetfundamentals.screens
 
+import android.content.res.Configuration
+import android.util.Log
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Button
 import androidx.compose.material3.Text
@@ -15,6 +17,7 @@ import com.niranjan.khatri.androidcomposetutorial.R
 import com.niranjan.khatri.androidcomposetutorial.jetfundamentals.router.BackButtonNavigator
 import com.niranjan.khatri.androidcomposetutorial.jetfundamentals.router.ComposeFundamentalRouter
 import com.niranjan.khatri.androidcomposetutorial.jetfundamentals.router.Screen
+import com.niranjan.khatri.androidcomposetutorial.ui.theme.AndroidComposeTutorialTheme
 
 /**
  * @author NIRANJAN KHATRI
@@ -30,30 +33,34 @@ fun AlertDialogScreen(){
     }
 }
 
-@Preview
+@Preview("Light Theme")
+@Preview("Dark Theme", uiMode = Configuration.UI_MODE_NIGHT_YES)
 @Composable
 fun MyAlertDialog(){
-    val shouldShowDialog = remember {
-        mutableStateOf(true)
-    }
-    if (shouldShowDialog.value){
-        AlertDialog(
-            onDismissRequest = {
-                shouldShowDialog.value = false
-                ComposeFundamentalRouter.navigateTo(Screen.Navigation)
-            },
-            title = { Text(text = stringResource(id = R.string.alert_dialog_title))},
-            text = { Text(text = stringResource(id = R.string.alert_dialog_message))},
-            confirmButton = {
-                Button(onClick = {
+    AndroidComposeTutorialTheme {
+        val shouldShowDialog = remember {
+            mutableStateOf(true)
+        }
+        if (shouldShowDialog.value){
+            Log.d("ALERT", "MyAlertDialog: shown")
+            AlertDialog(
+                onDismissRequest = {
                     shouldShowDialog.value = false
                     ComposeFundamentalRouter.navigateTo(Screen.Navigation)
-                }) {
-                    Text(
-                        text = stringResource(id = R.string.compose),
-                        fontSize = 22.sp,
-                    )
-                }
-            })
+                },
+                title = { Text(text = stringResource(id = R.string.alert_dialog_title))},
+                text = { Text(text = stringResource(id = R.string.alert_dialog_message))},
+                confirmButton = {
+                    Button(onClick = {
+                        shouldShowDialog.value = false
+                        ComposeFundamentalRouter.navigateTo(Screen.Navigation)
+                    }) {
+                        Text(
+                            text = stringResource(id = R.string.compose),
+                            fontSize = 22.sp,
+                        )
+                    }
+                })
+        }
     }
 }

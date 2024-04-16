@@ -14,7 +14,7 @@ import com.niranjan.khatri.androidcomposetutorial.ComposeTutorialApp
 import com.niranjan.khatri.androidcomposetutorial.notesapp.presentation_layer.MainViewModel
 import com.niranjan.khatri.androidcomposetutorial.notesapp.presentation_layer.MainViewModelFactory
 import com.niranjan.khatri.androidcomposetutorial.notesapp.ui_layer.AppDrawer
-import com.niranjan.khatri.androidcomposetutorial.notesapp.ui_layer.Note
+import com.niranjan.khatri.androidcomposetutorial.notesapp.ui_layer.NoteWithPaddingAfterThen
 import com.niranjan.khatri.androidcomposetutorial.notesapp.ui_layer.RouteScreen
 import com.niranjan.khatri.androidcomposetutorial.ui.theme.AndroidComposeTutorialTheme
 import kotlinx.coroutines.launch
@@ -65,6 +65,6 @@ fun NoteAppContent() {
                     }
                 })
         }) {
-        Note()
+        NoteWithPaddingAfterThen()
     }
 }

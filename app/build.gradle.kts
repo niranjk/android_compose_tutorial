@@ -1,13 +1,19 @@
+import java.io.FileInputStream
+import java.util.Properties
+
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
     kotlin("plugin.serialization") version "1.8.10"
 }
 
+val keysPropertiesFile: File = rootProject.file("keys.properties")
+val keysProperties = Properties()
+keysProperties.load(FileInputStream(keysPropertiesFile))
+
 android {
     namespace = "com.niranjan.khatri.androidcomposetutorial"
     compileSdk = 34
-
     defaultConfig {
         applicationId = "com.niranjan.khatri.androidcomposetutorial"
         minSdk = 24
@@ -20,7 +26,14 @@ android {
             useSupportLibrary = true
         }
     }
-
+    signingConfigs {
+        create("release") {
+            keyAlias = keysProperties["keyAlias"] as String
+            keyPassword = keysProperties["keyPassword"] as String
+            storeFile = file(keysProperties["storeFile"] as String)
+            storePassword = keysProperties["storePassword"] as String
+        }
+    }
     buildTypes {
         release {
             isMinifyEnabled = false
@@ -28,6 +41,7 @@ android {
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
+            signingConfig = signingConfigs.getByName("release")
         }
     }
     compileOptions {

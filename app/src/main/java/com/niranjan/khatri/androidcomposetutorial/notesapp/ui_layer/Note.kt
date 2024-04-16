@@ -15,16 +15,17 @@ import androidx.compose.material3.ListItem
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.niranjan.khatri.androidcomposetutorial.ui.theme.green
 
 @Composable
-fun Note() {
+fun NoteWithPaddingAfterThen() {
     Row(modifier = Modifier
         .fillMaxWidth()
         .then(
-            Modifier.padding(8.dp) // Apply padding after fillMaxWidth()
+            Modifier.padding(32.dp) // Apply padding after fillMaxWidth()
         )) {
         Box(
             modifier = Modifier
@@ -40,6 +41,28 @@ fun Note() {
             checked = false,
             onCheckedChange = { },
             modifier = Modifier.padding(start = 8.dp)
+        )
+    }
+}
+
+@Preview("Modifier Order Example")
+@Composable
+fun ModifierOrderExample() {
+    Column {
+        Text(
+            text = "This content fills the entire width - minus the padding of the area ",
+            modifier = Modifier
+                .fillMaxWidth() // Sets max width first
+                .then(Modifier.padding(32.dp)) // then add padding later
+                .background(Color.Yellow) // Highlight the content area
+        )
+        Spacer(modifier = Modifier.height(8.dp)) // Add some spacing
+        Text(
+            text = "This content might not fill the entire width - of the available place ",
+            modifier = Modifier
+                .padding(32.dp) // Add padding first
+                .fillMaxWidth() // Try to fill max width after padding
+                .background(Color.Green) // Highlight the content area
         )
     }
 }
@@ -80,8 +103,7 @@ fun MySlotContentUse(){
     }
 }
 
-@Preview(showBackground = true)
 @Composable
 private fun NotePreview() {
-    MySlotContentUse()
+    // MySlotContentUse()
 }
