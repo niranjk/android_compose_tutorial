@@ -13,3 +13,5 @@
 .externalNativeBuild
 .cxx
 local.properties
+# Keystore confidential information
+keys.properties

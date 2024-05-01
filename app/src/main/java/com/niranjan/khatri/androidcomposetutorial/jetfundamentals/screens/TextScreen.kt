@@ -8,6 +8,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.Layout
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.pluralStringResource
 import androidx.compose.ui.res.stringResource
@@ -40,6 +41,7 @@ fun TextScreen() {
     }
 }
 
+@Preview(showBackground = true)
 @Composable
 fun MyText(){
     Text(
@@ -51,10 +53,12 @@ fun MyText(){
     )
 }
 
+@Preview(showBackground = true)
 @Composable
 fun MyFormattedText(){
     val name = "Ninja"
     val formattedString = stringResource(id = R.string.compose_name, name)
+    // LocalContext.current.resources.getString(R.string.compose) // Dynamic Resource Id
     Text(
         text = formattedString,
         fontStyle = FontStyle.Italic,
