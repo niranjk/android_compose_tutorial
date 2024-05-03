@@ -115,7 +115,6 @@ fun ProductScreen(product: Product) {
 }
 
 // Encapsulate the product card logic!
-@Preview(showBackground = true)
 @Composable
 fun ProductCard(
     product: Product = Product("Car", "  Rs. 12,000"),
@@ -139,7 +138,6 @@ fun ProductCard(
 
 // Now you can reuse the ProductCard composable anywhere!
 
-@Preview(showBackground = true)
 @Composable
 fun ProductScreenList(
     productList: List<Product> = listOf(
@@ -220,13 +218,13 @@ fun SideEffectFreeComposables(myInput: List<String>){
  * This code runs with side-effect and effect the behaviour of compose recomposition
  */
 @Composable
-fun SideEffectComposables(myInput: List<String>){
+fun SideEffectComposables(myInput: List<String> = listOf("A", "B", "C")) {
     var items = 0
-    Row (horizontalArrangement =  Arrangement.SpaceBetween){
+    Row(horizontalArrangement = Arrangement.SpaceBetween) {
         Column {
-            for (input in myInput){
+            for (input in myInput) {
                 Text(text = "My Input: $input")
-                items ++ // !! Avoid this side effect behaviour of the compose recomposition
+                items++ // !! Avoid this side effect behaviour of the compose recomposition
             }
         }
         Text(text = "Input Count: ${myInput.size}")
@@ -235,11 +233,10 @@ fun SideEffectComposables(myInput: List<String>){
 
 
 @Composable
-fun RecompositionSkipping(name: String){
+fun RecompositionSkipping(name: String = "Compose"){
     Column {
         MyTopScreen()  // skipped recomposition
         MyMiddleScreen(name = name) // recomposition occurs here
         MyBottomScreen()  // skipped recomposition
     }
 }
-
