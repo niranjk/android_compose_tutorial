@@ -49,7 +49,7 @@ fun MyScaffoldScreen() {
         bottomBar = {
             MyBottomAppBar()
         }
-    ) {
+    ) {// Contents ..
         Box(modifier = Modifier
             .fillMaxSize()
             .padding(it)){

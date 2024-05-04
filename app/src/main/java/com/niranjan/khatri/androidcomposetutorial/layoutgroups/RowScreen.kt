@@ -31,11 +31,11 @@ fun RowScreen() {
     }
 }
 
-@Preview(showBackground = true)
+@Preview(showBackground = true, heightDp = 320)
 @Composable
 fun MyRow(){
     Row (
-        verticalAlignment = Alignment.CenterVertically,
+        verticalAlignment = Alignment.CenterVertically, // alignments
         horizontalArrangement = Arrangement.SpaceEvenly,
         modifier = Modifier.fillMaxSize()
     ){

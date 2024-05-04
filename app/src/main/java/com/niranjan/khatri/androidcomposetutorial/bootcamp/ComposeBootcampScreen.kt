@@ -5,6 +5,8 @@ import androidx.compose.animation.core.Spring
 import androidx.compose.animation.core.animateDpAsState
 import androidx.compose.animation.core.spring
 import androidx.compose.animation.core.tween
+import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -12,6 +14,7 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.icons.Icons
@@ -33,6 +36,8 @@ import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.alpha
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
@@ -51,9 +56,6 @@ import com.niranjan.khatri.androidcomposetutorial.ui.theme.AndroidComposeTutoria
 fun ComposeBootcampScreen(
     onClicked: () -> Unit,
     modifier: Modifier = Modifier){
-    // TODO: This state should be hoisted
-    var shouldShowOnboarding by remember { mutableStateOf(true) }
-
     Column(
         modifier = modifier.fillMaxSize(),
         verticalArrangement = Arrangement.Center,
@@ -101,6 +103,12 @@ fun ComposeRowElement(){
     }
 }
 
+/** Button Types:
+ * 1. ElevatedButton
+ * 2. TextButton
+ * 3. OutlinedButton
+ * 4. FilledTonalButton
+ */
 @Composable
 fun MyButton(modifier: Modifier = Modifier){
     Surface(modifier = modifier.padding(16.dp), color = MaterialTheme.colorScheme.primary){
@@ -203,13 +211,26 @@ fun ComposeExpandableScreen(name: String = "Ninja"){
     }
 }
 
-
-
-
-
-
-
-
+@Preview(showBackground = true, heightDp = 200)
+@Composable
+fun ModifierComposables(){
+    var name by rememberSaveable {
+        mutableStateOf("")
+    }
+    Box(modifier = Modifier.size(150.dp)){
+        Text(text = name,
+            modifier = Modifier
+                .background(Color.Green)
+                .size(200.dp, 40.dp)
+                .padding(5.dp)
+                .alpha(0.5f)
+                .align(Alignment.BottomCenter)
+                .clickable {
+                    name = "ninja"
+                }
+        )
+    }
+}
 
 
 @Preview(
