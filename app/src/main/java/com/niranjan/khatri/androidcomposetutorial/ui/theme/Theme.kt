@@ -74,6 +74,21 @@ fun AndroidComposeTutorialTheme(
     )
 }
 
+
+@Composable
+fun BootcampTheme(
+    darkTheme: Boolean = isSystemInDarkTheme(),
+    content: @Composable () -> Unit
+){
+    val isDarkTheme = darkTheme
+    val colorScheme = if (isDarkTheme) darkColorScheme() else lightColorScheme()
+
+    MaterialTheme(
+        colorScheme = colorScheme,
+        typography = Typography,
+        content = content
+    )
+}
 /**
  * Allows changing between light and a dark theme from the app's settings.
  */

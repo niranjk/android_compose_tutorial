@@ -16,4 +16,17 @@
         <item quantity="one">1 item found</item>
         <item quantity="other">%d items found</item>
     </plurals>
+
+    <string name="label_search">Search</string>
+    <string name="label_car">Car</string>
+    <string name="label_car_desc">Masertai: It was founded in Bologna, Italy in 1914.</string>
+    <string name="label_car_prosche">Prosche</string>
+    <string name="label_car_audi">Audi</string>
+    <string name="label_car_bugatti">Bugatti</string>
+    <string name="label_car_ferrari">Ferrari</string>
+    <string name="label_car_lamborghini">Lamborghini</string>
+    <string name="label_product_list">Products List</string>
+    <string name="label_favorite_list">Favorites List</string>
+    <string name="label_home">Home</string>
+    <string name="label_profile">Profile</string>
 </resources>

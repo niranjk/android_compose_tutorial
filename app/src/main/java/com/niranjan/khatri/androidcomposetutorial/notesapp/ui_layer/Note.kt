@@ -75,7 +75,7 @@ fun ColumnItem(){
     LazyColumn(modifier = Modifier.fillMaxSize()) {
         items(items){ item ->
             ListItem(
-                headlineText = { Text(text = item) },
+                headlineContent = { Text(text = item) },
                 modifier = Modifier
                     .fillMaxWidth()
                     .padding(16.dp)

@@ -10,6 +10,8 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
+import androidx.compose.material3.windowsizeclass.ExperimentalMaterial3WindowSizeClassApi
+import androidx.compose.material3.windowsizeclass.calculateWindowSizeClass
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -20,15 +22,18 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.niranjan.khatri.androidcomposetutorial.bootcamp.ComposableExpandables
 import com.niranjan.khatri.androidcomposetutorial.bootcamp.ComposeBootcampScreen
+import com.niranjan.khatri.androidcomposetutorial.bootcamp.MyBootcampTwoApp
 import com.niranjan.khatri.androidcomposetutorial.ui.theme.AndroidComposeTutorialTheme
 
 class MainActivity : ComponentActivity() {
+    @OptIn(ExperimentalMaterial3WindowSizeClassApi::class)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         // Setting the content
         setContent { // Starting Point
             AndroidComposeTutorialTheme { // Using the Custom App Theme
-                MyComposeBootcampApp(modifier =  Modifier.fillMaxSize())
+                val windowSizeClass = calculateWindowSizeClass(activity = this)
+                MyBootcampTwoApp(windowSizeClass)
             }
         }
     }
