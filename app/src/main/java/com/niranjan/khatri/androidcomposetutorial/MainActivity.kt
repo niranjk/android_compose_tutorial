@@ -32,8 +32,7 @@ class MainActivity : ComponentActivity() {
         // Setting the content
         setContent { // Starting Point
             AndroidComposeTutorialTheme { // Using the Custom App Theme
-                val windowSizeClass = calculateWindowSizeClass(activity = this)
-                MyBootcampTwoApp(windowSizeClass)
+                Greeting("Compose App")
             }
         }
     }

@@ -240,3 +240,8 @@ fun RecompositionSkipping(name: String = "Compose"){
         MyBottomScreen()  // skipped recomposition
     }
 }
+
+@Composable
+fun MyComposableTestable(){
+    Text(text = "Namaste, Compose!")
+}

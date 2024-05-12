@@ -3,6 +3,7 @@ package com.niranjan.khatri.androidcomposetutorial.bootcamp
 import android.content.res.Configuration
 import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
+import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.isSystemInDarkTheme
@@ -11,6 +12,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.defaultMinSize
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -31,6 +33,8 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Face
 import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.Search
+import androidx.compose.material3.Button
+import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.NavigationBar
@@ -46,14 +50,19 @@ import androidx.compose.material3.lightColorScheme
 import androidx.compose.material3.windowsizeclass.WindowSizeClass
 import androidx.compose.material3.windowsizeclass.WindowWidthSizeClass
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.platform.InspectorInfo
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
+import androidx.navigation.compose.rememberNavController
 import com.niranjan.khatri.androidcomposetutorial.R
 import com.niranjan.khatri.androidcomposetutorial.ui.theme.AndroidComposeTutorialTheme
 import com.niranjan.khatri.androidcomposetutorial.ui.theme.BootcampTheme
@@ -128,12 +137,12 @@ fun ProductItem(
 }
 
 
-/*
+
 @Preview(
-    showBackground = true, heightDp = 120, uiMode = Configuration.UI_MODE_NIGHT_YES, name = "PreviewDark"
+    showBackground = true, heightDp = 120, uiMode = Configuration.UI_MODE_NIGHT_YES,
+    name = "PreviewDark"
 )
 @Preview(showBackground = true, name = "PreviewLight", heightDp = 120)
- */
 @Composable
 fun FavoriteProductCard(
     modifier: Modifier = Modifier,
@@ -277,11 +286,13 @@ fun MainScreen(modifier: Modifier = Modifier) {
     }
 }
 
-
+/*
 @Preview(
     showBackground = true, heightDp = 100, uiMode = Configuration.UI_MODE_NIGHT_YES, name = "PreviewDark"
 )
 @Preview(showBackground = true, name = "PreviewLight", heightDp = 100)
+
+ */
 @Composable
 private fun BottomNavigationBarScreen(modifier: Modifier = Modifier) {
     NavigationBar(
@@ -348,11 +359,20 @@ fun MyBootcampTwoApp_Landscape() {
     }
 }
 
+// Custom Composables for Animation
+@Composable
+fun Modifier.fade(enable: Boolean): Modifier {
+    val alpha by animateFloatAsState(if (enable) 0.5f else 1.0f)
+    return this then Modifier.graphicsLayer { this.alpha = alpha }
+}
 
+/*
 @Preview(
     showBackground = true, heightDp = 300, uiMode = Configuration.UI_MODE_NIGHT_YES, name = "PreviewDark"
 )
 @Preview(showBackground = true, name = "PreviewLight", heightDp = 300)
+
+ */
 @Composable
 private fun NavigationRailScreen(modifier: Modifier = Modifier) {
     NavigationRail(
@@ -374,7 +394,10 @@ private fun NavigationRailScreen(modifier: Modifier = Modifier) {
                     Text(stringResource(R.string.label_home))
                 },
                 selected = true,
-                onClick = {}
+                onClick = {
+                    // Handle click
+                    println("Clicked")
+                }
             )
             Spacer(modifier = Modifier.height(8.dp))
             NavigationRailItem(
