@@ -15,14 +15,14 @@ import kotlinx.coroutines.launch
  * @version 1
  */
 class CoffeeViewModel(
-    private val repository: CoffeeRepository
+    private val repository: CoffeeRepository,
 ) : ViewModel() {
     private val _coffeeImage = MutableStateFlow<CoffeeImage>(CoffeeImage())
     val coffeeImage: StateFlow<CoffeeImage> = _coffeeImage.asStateFlow()
 
-    init{
+    init {
         viewModelScope.launch {
-            repository.getRandomCoffeeImage().collect{
+            repository.getRandomCoffeeImage().collect {
                 _coffeeImage.emit(it)
             }
         }

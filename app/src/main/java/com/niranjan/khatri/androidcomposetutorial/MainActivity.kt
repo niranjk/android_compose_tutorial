@@ -32,12 +32,13 @@ class MainActivity : ComponentActivity() {
         // Setting the content
         setContent { // Starting Point
             AndroidComposeTutorialTheme { // Using the Custom App Theme
-                Greeting("Compose App")
+                MyComposeBootcampApp()
             }
         }
     }
 }
 
+// STATE HOISTING EXAMPLE
 @Composable
 fun MyComposeBootcampApp(modifier: Modifier= Modifier){
     var showBootcampScreen by rememberSaveable {  // Here we hoist our state
