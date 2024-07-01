@@ -9,5 +9,5 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 data class CoffeeImage(
-    val file: String? = null
+    val file: String? = null,
 )
