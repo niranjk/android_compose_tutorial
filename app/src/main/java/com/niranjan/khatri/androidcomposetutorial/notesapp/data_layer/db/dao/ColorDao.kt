@@ -1,5 +1,6 @@
 package com.niranjan.khatri.androidcomposetutorial.notesapp.data_layer.db.dao
 
+import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.Query
 import com.niranjan.khatri.androidcomposetutorial.notesapp.data_layer.db.model.ColorDbModel
@@ -10,6 +11,7 @@ import kotlinx.coroutines.flow.Flow
  * @since 26/03/24
  * @version 1
  */
+@Dao
 interface ColorDao {
     @Query("SELECT * FROM ColorDbModel")
     fun getAll(): Flow<List<ColorDbModel>>

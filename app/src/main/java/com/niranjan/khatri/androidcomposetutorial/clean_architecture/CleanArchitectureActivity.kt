@@ -21,6 +21,5 @@ class CleanArchitectureActivity : ComponentActivity() {
         setContent {
             CoffeeScreen(viewModel = viewModel)
         }
-
     }
 }
