@@ -29,6 +29,7 @@ import androidx.compose.ui.unit.dp
 import coil.compose.rememberAsyncImagePainter
 import com.niranjan.khatri.androidcomposetutorial.Greeting
 import com.niranjan.khatri.androidcomposetutorial.R
+import com.niranjan.khatri.androidcomposetutorial.ds.DevicePreview
 import com.niranjan.khatri.androidcomposetutorial.list.MyItem
 import java.time.LocalDate
 
@@ -142,8 +143,7 @@ fun ProductCard(
 fun ProductScreenList(
     productList: List<Product> = listOf(
         Product(name = "Maruti", "  Rs. 1,000"),
-        Product(name = "Suzuki", "  Rs. 12,000"),
-        Product(name = "BMW", "  Rs. 25,000"),
+        Product(name = "Suzuki", "  Rs. 12,000")
     )
 ) {
     // variable that holds the selected product

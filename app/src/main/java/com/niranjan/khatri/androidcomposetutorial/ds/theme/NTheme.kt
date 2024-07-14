@@ -8,7 +8,7 @@ import androidx.compose.runtime.CompositionLocalProvider
 @Composable
 fun NAppTheme(
     lightScheme: NColor = lightColorScheme(),
-    darkScheme: NColor = lightColorScheme(),
+    darkScheme: NColor = darkColorScheme(),
     shapes: NShapes = LocalShapes.current,
     typography: NTypography = LocalTypography.current,
     content: @Composable () -> Unit,
