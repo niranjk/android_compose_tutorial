@@ -8,7 +8,7 @@ import androidx.compose.ui.unit.sp
 
 private val nFontFamily = FontFamily.Serif
 
-val nTypography =
+val LocalTypography =
     compositionLocalOf {
         NTypography()
     }

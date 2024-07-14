@@ -172,4 +172,4 @@ fun darkColorScheme() =
             ),
     )
 
-val colorScheme = staticCompositionLocalOf { lightColorScheme() }
+val LocalColorScheme = staticCompositionLocalOf { lightColorScheme() }
