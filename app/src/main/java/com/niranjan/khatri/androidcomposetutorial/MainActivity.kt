@@ -20,6 +20,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.niranjan.khatri.androidcomposetutorial.bootcamp.ComposableExpandables
 import com.niranjan.khatri.androidcomposetutorial.bootcamp.ComposeBootcampScreen
+import com.niranjan.khatri.androidcomposetutorial.ds.theme.NAppTheme
 import com.niranjan.khatri.androidcomposetutorial.ui.theme.AndroidComposeTutorialTheme
 
 class MainActivity : ComponentActivity() {
@@ -29,38 +30,10 @@ class MainActivity : ComponentActivity() {
         // Setting the content
         setContent {
             // Starting Point
-            AndroidComposeTutorialTheme {
+            NAppTheme {
                 // Using the Custom App Theme
-                Greeting("Compose App")
+                MyComposeBootcampApp()
             }
-        }
-    }
-}
-
-@Composable
-fun MyComposeBootcampApp(modifier: Modifier = Modifier)  {
-    var showBootcampScreen by rememberSaveable {
-        // Here we hoist our state
-        mutableStateOf(true)
-    }
-    Surface(
-        modifier = modifier,
-        color = MaterialTheme.colorScheme.tertiary,
-        shape = RoundedCornerShape(10.dp),
-        border = BorderStroke(2.dp, MaterialTheme.colorScheme.surfaceVariant),
-        shadowElevation = 10.dp,
-        tonalElevation = 10.dp,
-    ) {
-        if (showBootcampScreen)
-            {
-                ComposeBootcampScreen(
-                    //  We pass the Event up by passing the callbacks down so we can recompose
-                    onClicked = {
-                        showBootcampScreen = false
-                    },
-                )
-            } else {
-            ComposableExpandables()
         }
     }
 }
@@ -73,6 +46,30 @@ fun Greeting(
     Text(text = "Hello $name!", modifier = modifier)
 }
 
+@Composable
+fun MyComposeBootcampApp(modifier: Modifier = Modifier) {
+    var showBootcampScreen by rememberSaveable {
+        // Here we hoist our state
+        mutableStateOf(true)
+    }
+    Surface(
+        modifier = modifier,
+        color = MaterialTheme.colorScheme.tertiary,
+        shape = RoundedCornerShape(10.dp),
+        border = BorderStroke(2.dp, MaterialTheme.colorScheme.surfaceVariant),
+        shadowElevation = 10.dp,
+        tonalElevation = 10.dp,
+    ) {
+        if (showBootcampScreen) {
+            ComposeBootcampScreen(
+                //  We pass the Event up by passing the callbacks down so we can recompose
+                onClicked = {
+                    showBootcampScreen = false
+                },
+            )
+        } else { ComposableExpandables() }
+    }
+}
 @Preview(
     showBackground = true,
     heightDp = 320,

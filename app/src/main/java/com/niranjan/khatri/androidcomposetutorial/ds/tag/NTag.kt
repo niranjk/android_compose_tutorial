@@ -17,9 +17,12 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.tooling.preview.Preview
 import com.niranjan.khatri.androidcomposetutorial.ds.DevicePreview
+import com.niranjan.khatri.androidcomposetutorial.ds.theme.LocalColorScheme
 import com.niranjan.khatri.androidcomposetutorial.ds.theme.LocalShapes
 import com.niranjan.khatri.androidcomposetutorial.ds.theme.LocalTypography
+import com.niranjan.khatri.androidcomposetutorial.ds.theme.NAppTheme
 
 @Composable
 fun NTag(
@@ -30,11 +33,14 @@ fun NTag(
 ) {
     Row(
         modifier =
-            modifier
-                .wrapContentWidth()
-                .background(color = Color.Transparent, shape = RoundedCornerShape(LocalShapes.current.radius.radiusSmall))
-                .padding(LocalShapes.current.space.spaceSmall)
-                .semantics(mergeDescendants = true) { },
+        modifier
+            .wrapContentWidth()
+            .background(
+                color =  LocalColorScheme.current.primary.inversePrimary,
+                shape = RoundedCornerShape(LocalShapes.current.radius.radiusMedium)
+            )
+            .padding(LocalShapes.current.space.spaceSmall)
+            .semantics(mergeDescendants = true) { },
         horizontalArrangement = Arrangement.SpaceEvenly,
         verticalAlignment = Alignment.CenterVertically,
     ) {
@@ -42,14 +48,16 @@ fun NTag(
             Icon(
                 painterResource(id = it),
                 modifier =
-                    modifier.padding(end = LocalShapes.current.space.spaceSmall).size(
+                modifier
+                    .padding(end = LocalShapes.current.space.spaceSmall)
+                    .size(
                         LocalShapes.current.space.spaceXLarge,
                     ),
                 contentDescription = contentDesc,
             )
         }
         Text(
-            color = Color.Blue,
+            color = LocalColorScheme.current.primary.primaryContainer,
             text = text,
             maxLines = 1,
             textAlign = TextAlign.Center,
@@ -61,7 +69,10 @@ fun NTag(
 @DevicePreview
 @Composable
 fun Tag_P() {
-    Column {
-        NTag(text = "Girl", tagModel = NTagStatus.Girl())
+    NAppTheme {
+        Column {
+            NTag(text = "Boy", tagModel = NTagStatus.Boy())
+            NTag(text = "Girl", tagModel = NTagStatus.Girl())
+        }
     }
 }
