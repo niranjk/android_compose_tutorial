@@ -18,7 +18,8 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.text.style.TextAlign
 import com.niranjan.khatri.androidcomposetutorial.ds.DevicePreview
-import com.niranjan.khatri.androidcomposetutorial.ds.theme.NTheme
+import com.niranjan.khatri.androidcomposetutorial.ds.theme.LocalShapes
+import com.niranjan.khatri.androidcomposetutorial.ds.theme.LocalTypography
 
 @Composable
 fun NTag(
@@ -31,8 +32,8 @@ fun NTag(
         modifier =
             modifier
                 .wrapContentWidth()
-                .background(color = Color.Transparent, shape = RoundedCornerShape(NTheme.shapes.radius.radiusSmall))
-                .padding(NTheme.shapes.space.spaceSmall)
+                .background(color = Color.Transparent, shape = RoundedCornerShape(LocalShapes.current.radius.radiusSmall))
+                .padding(LocalShapes.current.space.spaceSmall)
                 .semantics(mergeDescendants = true) { },
         horizontalArrangement = Arrangement.SpaceEvenly,
         verticalAlignment = Alignment.CenterVertically,
@@ -40,7 +41,10 @@ fun NTag(
         tagModel.drawable?.let {
             Icon(
                 painterResource(id = it),
-                modifier = modifier.padding(end = NTheme.shapes.space.spaceSmall).size(NTheme.shapes.space.spaceXLarge),
+                modifier =
+                    modifier.padding(end = LocalShapes.current.space.spaceSmall).size(
+                        LocalShapes.current.space.spaceXLarge,
+                    ),
                 contentDescription = contentDesc,
             )
         }
@@ -49,7 +53,7 @@ fun NTag(
             text = text,
             maxLines = 1,
             textAlign = TextAlign.Center,
-            style = NTheme.typography.labelSmall,
+            style = LocalTypography.current.labelSmall,
         )
     }
 }
