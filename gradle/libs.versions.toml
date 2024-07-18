@@ -7,7 +7,7 @@ android-compose-compiler = "1.5.3"
 android-material = "1.10.0"
 androidx-compose-bom = "2023.10.00"
 androidx-lifecycle-runtime-ktx = "2.6.2"
-androidx-navigation-compose = "2.7.4"
+androidx-navigation-compose = "2.7.7"
 coil = "2.4.0"
 image-loader = "1.6.7"
 korio = "4.0.10"
@@ -72,7 +72,6 @@ precompose = { module = "moe.tlaster:precompose", version.ref = "precompose" }
 room-ktx = { module = "androidx.room:room-ktx", version.ref = "room-version"}
 room-runtime =  { module = "androidx.room:room-runtime", version.ref = "room-version"}
 room-compiler =  { module = "androidx.room:room-compiler", version.ref = "room-version"}
-navigation-compose = { group = "androidx.navigation", name = "navigation-compose", version.ref = "navigationCompose" }
 androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
 androidx-constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout", version.ref = "constraintlayout" }
 androidx-ui-test-android = { group = "androidx.compose.ui", name = "ui-test-android", version.ref = "uiTestAndroid" }

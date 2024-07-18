@@ -18,6 +18,7 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.niranjan.khatri.androidcomposetutorial.ds.theme.LocalShapes
 
 /**
  * @author NIRANJAN KHATRI
@@ -32,30 +33,22 @@ fun NavigationInCompose() {
 
     // Create a NavHost
     NavHost(navController = navController, startDestination = "home") {
-        composable("home") { HomeScreen(navController) }
-        composable("product_details") { ProductDetailsScreen(navController) }
+        composable("home") { HomerScreen(modifier = Modifier.padding(LocalShapes.current.space.spaceLarge), navController) }
+        composable("demo") { ProductDetailsScreen(navController) }
         composable("shopping_cart") { ShoppingCartScreen(navController) }
-        composable("checkout") { CheckoutScreen(navController) }
+        composable(
+            "checkout",
+        ) { CheckoutScreen(modifier = Modifier.padding(LocalShapes.current.space.spaceLarge), navController = navController) }
     }
-
-    // Navigate to the product details screen
-    navController.navigate("product_details")
-
-    // Navigate up to the home screen
-    navController.navigateUp()
-
-    // Clear the back stack
-    navController.clearBackStack("home")
 }
 
-
 @Composable
-fun PassingArgumentsInNavigation(){
+fun PassingArgumentsInNavigation() {
     // Create a NavController
     val navController = rememberNavController()
     // Create a NavHost for your app
     NavHost(navController = navController, startDestination = "home") {
-        composable("home") { HomeScreen(navController) }
+        composable("home") { HomerScreen(modifier = Modifier.padding(LocalShapes.current.space.spaceMedium), navController) }
         composable("details/{id}") { backStackEntry ->
             val id = backStackEntry.arguments?.getString("id").orEmpty()
             DetailsScreen(id)
@@ -73,30 +66,29 @@ fun PassingArgumentsInNavigation(){
 }
 
 @Composable
-fun DetailsScreen(id: String){
+fun DetailsScreen(id: String) {
     Text(text = id)
 }
 
-
 @Composable
-fun NestedNavigationExample(){
+fun NestedNavigationExample() {
     // Create a NavController
     val navController = rememberNavController()
     // Create a NavHost for the main navigation graph
     NavHost(navController = navController, startDestination = "home") {
-        composable("home") { HomeScreen(navController) }
+        composable("home") { HomerScreen(modifier = Modifier.padding(LocalShapes.current.space.spaceMedium), navController) }
         composable("settings") {
             // Create a nested NavHost for the settings navigation graph
             NavHost(navController = navController, startDestination = "general") {
                 composable("details") { DetailsScreen("123") }
-                composable("checkout") { CheckoutScreen(navController) }
+                composable("checkout") { CheckoutScreen(navController = navController) }
             }
         }
     }
 }
 
 @Composable
-fun DeepLinkingNavigation(){
+fun DeepLinkingNavigation() {
     // Create a NavController
     val navController = rememberNavController()
     // Create a deep link to the details screen with an ID of 123
@@ -110,16 +102,21 @@ fun DeepLinkingNavigation(){
 @Composable
 fun CustomNavigationButton(
     navController: NavHostController,
-    destination: String
+    destination: String,
 ) {
     Button(onClick = { navController.navigate(destination) }) {
         Text("Navigate to $destination")
     }
 }
+
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun CheckoutScreen(navController: NavHostController) {
+fun CheckoutScreen(
+    modifier: Modifier = Modifier,
+    navController: NavHostController,
+) {
     Scaffold(
+        modifier = modifier,
         topBar = {
             TopAppBar(
                 title = { Text("Checkout") },
@@ -127,16 +124,16 @@ fun CheckoutScreen(navController: NavHostController) {
                     IconButton(onClick = { navController.popBackStack() }) {
                         Icon(
                             imageVector = Icons.AutoMirrored.Filled.ArrowBack,
-                            contentDescription = "Back"
+                            contentDescription = "Back",
                         )
                     }
-                }
+                },
             )
-        }
+        },
     ) {
         // Rest of the CheckoutScreen content
         Column(modifier = Modifier.padding(it)) {
-            Text(text = "Checkout Items")
+            Text(text = "Checkout Items", modifier = modifier)
         }
     }
 }
@@ -153,8 +150,12 @@ fun ProductDetailsScreen(navController: NavHostController) {
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun HomeScreen(navController: NavHostController) {
+fun HomerScreen(
+    modifier: Modifier = Modifier,
+    navController: NavHostController,
+) {
     Scaffold(
+        modifier = modifier,
         topBar = {
             TopAppBar(
                 title = { Text("Home") },
@@ -162,18 +163,21 @@ fun HomeScreen(navController: NavHostController) {
                     IconButton(onClick = { navController.popBackStack() }) {
                         Icon(
                             imageVector = Icons.AutoMirrored.Filled.ArrowBack,
-                            contentDescription = "Back"
+                            contentDescription = "Back",
                         )
                     }
-                }
+                },
             )
-        }
+        },
     ) {
         // Rest of the CheckoutScreen content
         Column(modifier = Modifier.padding(it)) {
-            Text(text = "Home Items")
+            Text(text = "Product Items")
+            Button(onClick = {
+                navController.navigate("checkout")
+            }) {
+                Text(text = "Go to Checkout Screen")
+            }
         }
     }
 }
-
-
