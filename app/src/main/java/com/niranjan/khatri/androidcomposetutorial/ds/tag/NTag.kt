@@ -13,11 +13,9 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.tooling.preview.Preview
 import com.niranjan.khatri.androidcomposetutorial.ds.DevicePreview
 import com.niranjan.khatri.androidcomposetutorial.ds.theme.LocalColorScheme
 import com.niranjan.khatri.androidcomposetutorial.ds.theme.LocalShapes
@@ -33,14 +31,13 @@ fun NTag(
 ) {
     Row(
         modifier =
-        modifier
-            .wrapContentWidth()
-            .background(
-                color =  LocalColorScheme.current.primary.inversePrimary,
-                shape = RoundedCornerShape(LocalShapes.current.radius.radiusMedium)
-            )
-            .padding(LocalShapes.current.space.spaceSmall)
-            .semantics(mergeDescendants = true) { },
+            modifier
+                .wrapContentWidth()
+                .background(
+                    color = LocalColorScheme.current.primary.inversePrimary,
+                    shape = RoundedCornerShape(LocalShapes.current.radius.radiusMedium),
+                ).padding(LocalShapes.current.space.spaceMedium)
+                .semantics(mergeDescendants = true) { },
         horizontalArrangement = Arrangement.SpaceEvenly,
         verticalAlignment = Alignment.CenterVertically,
     ) {
@@ -48,11 +45,11 @@ fun NTag(
             Icon(
                 painterResource(id = it),
                 modifier =
-                modifier
-                    .padding(end = LocalShapes.current.space.spaceSmall)
-                    .size(
-                        LocalShapes.current.space.spaceXLarge,
-                    ),
+                    modifier
+                        .padding(end = LocalShapes.current.space.spaceSmall)
+                        .size(
+                            LocalShapes.current.space.spaceXLarge,
+                        ),
                 contentDescription = contentDesc,
             )
         }
