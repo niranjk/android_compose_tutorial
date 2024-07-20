@@ -1,13 +1,12 @@
 package com.niranjan.khatri.androidcomposetutorial.ui.demo
 
-import androidx.compose.foundation.background
+import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.clickable
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
+import androidx.compose.material3.Card
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -22,36 +21,44 @@ fun DemoScreen(
 ) {
     val demoItemsList =
         listOf<DemoItemType>(
-            DemoItemType.Tag,
+            DemoItemType.Accordion,
+            DemoItemType.Divider,
+            DemoItemType.Switch,
             DemoItemType.Tab,
+            DemoItemType.Tag,
         )
     LazyColumn {
         items(demoItemsList) { item ->
-            Column {
-                Row(
-                    modifier =
-                        modifier
-                            .fillMaxSize()
-                            .background(LocalColorScheme.current.neutral.background)
-                            .padding(
-                                LocalShapes.current.space.spaceMedium,
-                            ).clickable {
-                                navigateToItemScreen(item)
-                            },
-                ) {
-                    Text(
-                        modifier = modifier,
-                        text = item.name,
-                        color = LocalColorScheme.current.primary.onPrimary,
-                        style = LocalTypography.current.bodyLarge,
-                    )
-                }
+            Card(
+                modifier =
+                    modifier
+                        .fillMaxSize()
+                        .padding(
+                            LocalShapes.current.space.spaceMedium,
+                        ).clickable {
+                            navigateToItemScreen(item)
+                        },
+                border =
+                    BorderStroke(
+                        LocalShapes.current.space.spaceSmall,
+                        color = LocalColorScheme.current.primary.primaryContainer,
+                    ),
+            ) {
+                Text(
+                    modifier = modifier.padding(LocalShapes.current.space.spaceMedium),
+                    text = item.name,
+                    color = LocalColorScheme.current.primary.onPrimary,
+                    style = LocalTypography.current.bodyLarge,
+                )
             }
         }
     }
 }
 
 enum class DemoItemType {
+    Accordion,
+    Divider,
+    Switch,
     Tag,
     Tab,
 }

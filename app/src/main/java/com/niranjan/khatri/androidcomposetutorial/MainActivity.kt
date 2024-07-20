@@ -64,7 +64,7 @@ fun AppGraph(navController: NavHostController) {
 fun BottomBarScreen() {
     val navController = rememberNavController()
     Scaffold(
-        bottomBar = { BottomNavigationScreen() },
+        bottomBar = { BottomNavigationScreen(navigationController = navController) },
     ) { padding ->
         Box(modifier = Modifier.padding(padding)) {
             AppGraph(navController = navController)
