@@ -17,31 +17,47 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.semantics.semantics
+import androidx.compose.ui.semantics.stateDescription
 import androidx.compose.ui.unit.dp
+import com.niranjan.khatri.androidcomposetutorial.R
 import com.niranjan.khatri.androidcomposetutorial.ds.DevicePreview
 import com.niranjan.khatri.androidcomposetutorial.ds.theme.LocalShapes
+import com.niranjan.khatri.androidcomposetutorial.ds.theme.LocalTypography
 import com.niranjan.khatri.androidcomposetutorial.ds.theme.NAppTheme
+
+typealias OnExpanded = ((Boolean) -> Unit)
 
 @Composable
 fun NAccordion(
     title: String,
     content: String,
+    expanded: Boolean,
+    onRowExpanded: OnExpanded,
 ) {
-    var expanded by remember {
-        mutableStateOf(false)
-    }
+    val accessibilityLabel =
+        if (expanded) stringResource(id = R.string.label_expanded) else stringResource(R.string.label_collapsed)
     Column {
         Row(
-            modifier = Modifier
+            modifier =
+                Modifier
                     .fillMaxWidth()
-                    .clickable {
-                        expanded = !expanded
+                    .semantics (mergeDescendants = true){
+                        stateDescription = accessibilityLabel
+                    }.clickable {
+                        onRowExpanded(expanded)
                     }.padding(LocalShapes.current.space.spaceLarge),
         ) {
-            Text(text = title, modifier = Modifier.weight(1f))
-            Icon(imageVector = if (expanded == null) Icons.Filled.KeyboardArrowUp
-                    else Icons.Filled.KeyboardArrowDown,
-                contentDescription = if (expanded) "Collapse" else "Expand",
+            Text(text = title, modifier = Modifier.weight(1f), style = LocalTypography.current.headlineMedium)
+            Icon(
+                imageVector =
+                    if (expanded) {
+                        Icons.Filled.KeyboardArrowUp
+                    } else {
+                        Icons.Filled.KeyboardArrowDown
+                    },
+                contentDescription = null,
             )
         }
         AnimatedVisibility(visible = expanded) {
@@ -54,8 +70,13 @@ fun NAccordion(
 
 @DevicePreview
 @Composable
-fun AccordionN() {
+fun accordionN() {
+    var expanded by remember {
+        mutableStateOf(false)
+    }
     NAppTheme {
-        NAccordion(title = "Accordion ", content = "This is my content!")
+        NAccordion(title = "Accordion Header", content = "This is my content!", expanded) {
+            expanded = !expanded
+        }
     }
 }
