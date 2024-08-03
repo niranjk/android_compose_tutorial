@@ -30,6 +30,7 @@ appcompat = "1.6.1"
 constraintlayout = "2.1.4"
 uiTestAndroid = "1.6.7"
 uiTestJunit4Android = "1.6.7"
+detekt = "1.23.5"
 
 [libraries]
 android-material = { module = "com.google.android.material:material", version.ref = "android-material" }
@@ -76,6 +77,8 @@ androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version
 androidx-constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout", version.ref = "constraintlayout" }
 androidx-ui-test-android = { group = "androidx.compose.ui", name = "ui-test-android", version.ref = "uiTestAndroid" }
 androidx-ui-test-junit4-android = { group = "androidx.compose.ui", name = "ui-test-junit4-android", version.ref = "uiTestJunit4Android" }
+#detekt
+detekt-gradleplugin = { module = "io.gitlab.arturbosch.detekt:detekt-gradle-plugin", version.ref = "detekt"}
 
 
 [plugins]
@@ -89,3 +92,5 @@ jetbrains-kotlin-multiplatform = { id = "org.jetbrains.kotlin.multiplatform", ve
 jetbrains-kotlin-parcelize = { id = "org.jetbrains.kotlin.plugin.parcelize", version.ref = "kotlin" }
 jetbrains-kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
 kmp-NativeCoroutines = { id = "com.rickclephas.kmp.nativecoroutines", version.ref = "nativeCoroutines" }
+detekt = { id = "io.gitlab.arturbosch.detekt", version.ref = "detekt"}
+
