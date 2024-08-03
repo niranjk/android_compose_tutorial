@@ -19,13 +19,14 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.niranjan.khatri.androidcomposetutorial.R
 import com.niranjan.khatri.androidcomposetutorial.demo
-import com.niranjan.khatri.androidcomposetutorial.ds.theme.LocalTypography
+import com.niranjan.khatri.androidcomposetutorial.ds.chips.NInputChips
 import com.niranjan.khatri.androidcomposetutorial.home
 
 @Composable
 fun HomeScreen(modifier: Modifier = Modifier) {
     Box(modifier = modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
-        Text(text = stringResource(id = R.string.label_home), style = LocalTypography.current.bodyLarge)
+        // Text(text = stringResource(id = R.string.label_home), style = LocalTypography.current.bodyLarge)
+        NInputChips()
     }
 }
 
