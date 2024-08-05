@@ -19,6 +19,7 @@ ksp = "1.9.10-1.0.13"
 jetbrains-compose = "1.5.3"
 junit = "4.13.2"
 lifecycleRuntimeKtx = "2.7.0"
+material3 = "1.2.1"
 nativeCoroutines = "1.0.0-ALPHA-18"
 okio = "3.6.0"
 precompose = "1.5.3"
@@ -37,13 +38,12 @@ android-material = { module = "com.google.android.material:material", version.re
 
 #compose
 androidx-compose-bom = { group = "androidx.compose", name = "compose-bom", version.ref = "androidx-compose-bom" }
-androidx-compose-material = { module = "androidx.compose.material:material" }
-androidx-compose-material3 = { module = "androidx.compose.material3:material3" }
 androidx-compose-navigation = { group = "androidx.navigation", name = "navigation-compose" }
 androidx-compose-runtime = { group = "androidx.compose.runtime", name = "runtime-livedata" }
 androidx-compose-ui = { group = "androidx.compose.ui", name = "ui" }
 androidx-compose-foundation =  { module = "androidx.compose.foundation:foundation-layout", version.ref = "android-compose-compiler" }
 androidx-lifecycle-runtime-ktx = { module = "androidx.lifecycle:lifecycle-runtime-ktx", version.ref = "androidx-lifecycle-runtime-ktx" }
+androidx-material3 = { module = "androidx.compose.material3:material3", version.ref = "material3" }
 androidx-navigation-compose = { module = "androidx.navigation:navigation-compose", version.ref = "androidx-navigation-compose" }
 #splashscreen
 androidx-splash = { module = "androidx.core:core-splashscreen", version.ref = "splash-core"}
