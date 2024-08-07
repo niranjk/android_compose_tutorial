@@ -97,6 +97,8 @@ dependencies {
     implementation(libs.ktor.client.android)
     implementation(libs.image.coil)
 
+    implementation("com.google.accompanist:accompanist-pager:0.28.0") // For pager
+    implementation("com.google.accompanist:accompanist-pager-indicators:0.28.0") // For indicators
     // Room
     implementation(libs.room.ktx)
     annotationProcessor(libs.room.compiler)
