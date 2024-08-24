@@ -34,6 +34,7 @@ uiTestJunit4Android = "1.6.7"
 detekt = "1.23.5"
 places = "3.5.0"
 coreI18n = "1.0.0-alpha01"
+lifecycleViewmodelAndroid = "2.8.4"
 
 [libraries]
 android-material = { module = "com.google.android.material:material", version.ref = "android-material" }
@@ -83,6 +84,7 @@ androidx-ui-test-junit4-android = { group = "androidx.compose.ui", name = "ui-te
 detekt-gradleplugin = { module = "io.gitlab.arturbosch.detekt:detekt-gradle-plugin", version.ref = "detekt"}
 places = { group = "com.google.android.libraries.places", name = "places", version.ref = "places" }
 androidx-core-i18n = { group = "androidx.core", name = "core-i18n", version.ref = "coreI18n" }
+androidx-lifecycle-viewmodel-android = { group = "androidx.lifecycle", name = "lifecycle-viewmodel-android", version.ref = "lifecycleViewmodelAndroid" }
 
 
 [plugins]

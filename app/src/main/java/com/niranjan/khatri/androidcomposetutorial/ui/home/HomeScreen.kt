@@ -19,7 +19,7 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.niranjan.khatri.androidcomposetutorial.R
 import com.niranjan.khatri.androidcomposetutorial.demo
-import com.niranjan.khatri.androidcomposetutorial.ds.chips.NInputChips
+import com.niranjan.khatri.androidcomposetutorial.materialdesignsystem.chips.NInputChips
 import com.niranjan.khatri.androidcomposetutorial.home
 
 @Composable

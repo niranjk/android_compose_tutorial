@@ -18,7 +18,7 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.niranjan.khatri.androidcomposetutorial.ds.theme.LocalShapes
+import com.niranjan.khatri.androidcomposetutorial.materialdesignsystem.theme.LocalShapes
 
 /**
  * @author NIRANJAN KHATRI

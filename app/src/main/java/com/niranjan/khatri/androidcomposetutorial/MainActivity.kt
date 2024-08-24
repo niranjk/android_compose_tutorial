@@ -4,6 +4,7 @@ import android.content.res.Configuration.UI_MODE_NIGHT_YES
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.padding
@@ -30,7 +31,7 @@ import androidx.navigation.navArgument
 import androidx.navigation.navigation
 import com.niranjan.khatri.androidcomposetutorial.bootcamp.ComposableExpandables
 import com.niranjan.khatri.androidcomposetutorial.bootcamp.ComposeBootcampScreen
-import com.niranjan.khatri.androidcomposetutorial.ds.theme.NAppTheme
+import com.niranjan.khatri.androidcomposetutorial.materialdesignsystem.theme.NAppTheme
 import com.niranjan.khatri.androidcomposetutorial.ui.demo.DemoScreen
 import com.niranjan.khatri.androidcomposetutorial.ui.demo.DemoShowScreen
 import com.niranjan.khatri.androidcomposetutorial.ui.home.BottomNavigationScreen
@@ -41,6 +42,7 @@ class MainActivity : ComponentActivity() {
     @OptIn(ExperimentalMaterial3WindowSizeClassApi::class)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        enableEdgeToEdge()
         // Setting the content
         setContent {
             // Starting Point
