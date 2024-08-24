@@ -15,15 +15,15 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import com.niranjan.khatri.androidcomposetutorial.ds.divider.NHorizontalDivider
-import com.niranjan.khatri.androidcomposetutorial.ds.divider.NVerticalDivider
-import com.niranjan.khatri.androidcomposetutorial.ds.models.TextModel
-import com.niranjan.khatri.androidcomposetutorial.ds.selectors.NSwitchLabel
-import com.niranjan.khatri.androidcomposetutorial.ds.tabs.NTab
-import com.niranjan.khatri.androidcomposetutorial.ds.tag.NTag
-import com.niranjan.khatri.androidcomposetutorial.ds.tag.NTagStatus
-import com.niranjan.khatri.androidcomposetutorial.ds.theme.LocalColorScheme
-import com.niranjan.khatri.androidcomposetutorial.ds.theme.LocalShapes
+import com.niranjan.khatri.androidcomposetutorial.materialdesignsystem.divider.NHorizontalDivider
+import com.niranjan.khatri.androidcomposetutorial.materialdesignsystem.divider.NVerticalDivider
+import com.niranjan.khatri.androidcomposetutorial.materialdesignsystem.models.TextModel
+import com.niranjan.khatri.androidcomposetutorial.materialdesignsystem.selectors.NSwitchLabel
+import com.niranjan.khatri.androidcomposetutorial.materialdesignsystem.tabs.NTab
+import com.niranjan.khatri.androidcomposetutorial.materialdesignsystem.tag.NTag
+import com.niranjan.khatri.androidcomposetutorial.materialdesignsystem.tag.NTagStatus
+import com.niranjan.khatri.androidcomposetutorial.materialdesignsystem.theme.LocalColorScheme
+import com.niranjan.khatri.androidcomposetutorial.materialdesignsystem.theme.LocalShapes
 
 typealias DemoType = @Composable (() -> Unit)
 
