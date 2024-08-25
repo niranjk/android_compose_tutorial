@@ -1,4 +1,4 @@
-package com.niranjan.khatri.androidcomposetutorial.concepts
+package com.niranjan.khatri.androidcomposetutorial.concepts.edgetoedge
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
