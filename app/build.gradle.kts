@@ -1,10 +1,12 @@
 import java.io.FileInputStream
 import java.util.Properties
 
+
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
-    kotlin("plugin.serialization") version "1.8.10"
+    kotlin("plugin.serialization") version "1.8.10" // Or your desired version
+    alias(libs.plugins.compose.compiler)
 }
 
 val keysPropertiesFile: File = rootProject.file("keys.properties")
@@ -45,31 +47,32 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
     }
     kotlinOptions {
-        jvmTarget = "1.8"
+        jvmTarget = "17" // Update to 17 or higher if your project supports it
     }
     buildFeatures {
         compose = true
     }
-    composeOptions {
-        kotlinCompilerExtensionVersion = "1.4.3"
-    }
+    // Remove composeOptions block
     packaging {
         resources {
             excludes += "/META-INF/{AL2.0,LGPL2.1}"
         }
     }
+    composeCompiler {
+        enableStrongSkippingMode = true
+    }
 }
 
 dependencies {
-
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx.v270)
     implementation(libs.androidx.activity.compose)
-    implementation(libs.androidx.compose.bom)
+    implementation(platform(libs.androidx.compose.bom))
+    implementation(libs.kotlin.compose.compiler.plugin)
     implementation(libs.androidx.ui)
     implementation(libs.androidx.ui.graphics)
     implementation(libs.androidx.ui.tooling.preview)
@@ -78,15 +81,17 @@ dependencies {
     implementation(libs.androidx.navigation.compose)
     implementation(libs.androidx.appcompat)
     implementation(libs.androidx.constraintlayout)
-    implementation(libs.androidx.ui.test.android)
+    implementation(platform(libs.kotlin.bom))
+    // Remove androidx.ui.test.android as it's deprecated
     implementation(libs.androidx.ui.test.junit4.android)
     implementation(libs.places)
     implementation(libs.androidx.core.i18n)
     implementation(libs.androidx.lifecycle.viewmodel.android)
     implementation(libs.androidx.runtime.android)
+
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
-    androidTestImplementation(libs.compose.bom.v20230300)
+    androidTestImplementation(platform(libs.compose.bom.v20230300))
     // Test rules and transitive dependencies:
     androidTestImplementation(libs.androidx.ui.test.junit4)
     debugImplementation(libs.androidx.ui.tooling)
