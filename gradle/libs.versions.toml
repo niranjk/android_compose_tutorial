@@ -1,7 +1,7 @@
 [versions]
 accompanistPager = "0.28.0"
 activityCompose = "1.9.2"
-composeBomVersion = "2023.03.00"
+composeBomVersion = "2024.09.00"
 coreKtx = "1.13.1"
 gradle = "8.1.4"
 android-sdk-compile = "34"
@@ -17,6 +17,8 @@ image-loader = "1.6.7"
 junitVersion = "1.2.1"
 korio = "4.0.10"
 kotlin = "2.0.0"
+kotlinBom = "1.8.20"
+kotlinComposeCompilerPlugin = "2.0.0"
 kotlinx-datetime = "0.5.0"
 kotlinx-serialization-json = "1.6.3"
 ktor = "2.3.5"
@@ -54,7 +56,6 @@ androidx-compose-bom = { group = "androidx.compose", name = "compose-bom", versi
 androidx-compose-navigation = { group = "androidx.navigation", name = "navigation-compose" }
 androidx-compose-runtime = { group = "androidx.compose.runtime", name = "runtime-livedata" }
 androidx-compose-ui = { group = "androidx.compose.ui", name = "ui" }
-androidx-compose-foundation =  { module = "androidx.compose.foundation:foundation-layout", version.ref = "android-compose-compiler" }
 androidx-core-ktx = { module = "androidx.core:core-ktx", version.ref = "coreKtx" }
 androidx-junit = { module = "androidx.test.ext:junit", version.ref = "junitVersion" }
 androidx-lifecycle-runtime-ktx = { module = "androidx.lifecycle:lifecycle-runtime-ktx", version.ref = "androidx-lifecycle-runtime-ktx" }
@@ -79,6 +80,8 @@ image-coil = { module = "io.coil-kt:coil-compose", version.ref = "coil" }
 image-loader = { module = "io.github.qdsfdhvh:image-loader", version.ref = "image-loader" }
 junit = { module = "junit:junit", version.ref = "junit" }
 korio = { module = "com.soywiz.korlibs.korio:korio", version.ref = "korio" }
+kotlin-bom = { module = "org.jetbrains.kotlin:kotlin-bom", version.ref = "kotlinBom" }
+kotlin-compose-compiler-plugin = { module = "org.jetbrains.kotlin:kotlin-compose-compiler-plugin", version.ref = "kotlinComposeCompilerPlugin" }
 kotlinx-datetime = { module = "org.jetbrains.kotlinx:kotlinx-datetime", version.ref = "kotlinx-datetime" }
 kotlinx-serialization-json = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.ref = "kotlinx-serialization-json" }
 ktor-client-core = { module = "io.ktor:ktor-client-core", version.ref = "ktor" }
@@ -120,4 +123,5 @@ jetbrains-kotlin-parcelize = { id = "org.jetbrains.kotlin.plugin.parcelize", ver
 jetbrains-kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
 kmp-NativeCoroutines = { id = "com.rickclephas.kmp.nativecoroutines", version.ref = "nativeCoroutines" }
 detekt = { id = "io.gitlab.arturbosch.detekt", version.ref = "detekt"}
+compose-compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
 
