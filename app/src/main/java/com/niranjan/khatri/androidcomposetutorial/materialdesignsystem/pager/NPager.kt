@@ -1,9 +1,7 @@
 package com.niranjan.khatri.androidcomposetutorial.materialdesignsystem.pager
 
-import androidx.compose.animation.core.FastOutLinearInEasing
 import androidx.compose.animation.core.FastOutSlowInEasing
 import androidx.compose.animation.core.tween
-import androidx.compose.animation.rememberSplineBasedDecay
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -52,11 +50,6 @@ fun MyPager() {
     val customFlingBehavior = PagerDefaults.flingBehavior(
         state = pagerState,
         pagerSnapDistance = PagerSnapDistance.atMost(2),
-        lowVelocityAnimationSpec = tween(
-            easing = FastOutLinearInEasing,
-            durationMillis = 3000
-        ),
-        highVelocityAnimationSpec = rememberSplineBasedDecay(),
         snapAnimationSpec = tween(
             easing = FastOutSlowInEasing,
             durationMillis = 1000
@@ -77,7 +70,6 @@ fun MyPager() {
                     .weight(1f)
                     .background(Color.White),
                  contentPadding = PaddingValues(20.dp),
-                 beyondBoundsPageCount = 1, // You can use beyondBoundsPageCount to place more pages before and after the visible pages.
                 flingBehavior = customFlingBehavior
                 // pageSize = PageSize.Fixed(170.dp)
             ) { page ->
