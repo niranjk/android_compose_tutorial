@@ -1,13 +1,20 @@
 package com.niranjan.khatri.androidcomposetutorial.materialdesignsystem.chips
 
 import androidx.compose.foundation.BorderStroke
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.WindowInsets
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.navigationBarsPadding
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.statusBarsPadding
+import androidx.compose.foundation.layout.systemBars
+import androidx.compose.foundation.layout.windowInsetsPadding
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.text.KeyboardActions
@@ -29,6 +36,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.tooling.preview.Preview
@@ -150,7 +158,35 @@ fun NInputChips() {
     var enteredText by remember { mutableStateOf("") }
     val inputChips = remember{ mutableStateListOf<String>() }
 
-    Column(modifier = Modifier.padding(8.dp)) {
+    Column(modifier = Modifier.fillMaxSize().padding(8.dp)
+        .statusBarsPadding() // add padding for the status bar
+        .navigationBarsPadding() // add padding for the navigation bar
+        // .windowInsetsPadding(WindowInsets.systemBars)
+    ) {
+        /**
+         *  replace statusBarsPadding and navigationBarsPadding with windowInsetsPadding(WindowInsets.systemBars).
+         * WindowInsets.systemBars represents the insets for both the status bar and navigation bar combined.
+         * This approach provides the same padding behavior as using statusBarsPadding and navigationBarsPadding
+         * together. However, windowInsetsPadding offers more flexibility if you need to handle insets individually
+         * or apply padding based on other insets like WindowInsets.displayCutout (for display cutouts) or WindowInsets.ime
+         * (for the on-screen keyboard). For instance, if you only wanted to add padding for the navigation bar,
+         * you would use windowInsetsPadding(WindowInsets.navigationBars).
+         */
+        // Content with padding
+        Text(
+            "This text has padding for status and navigation bars",
+            modifier = Modifier
+                .background(Color.LightGray)
+        )
+
+        Spacer(modifier = Modifier.height(16.dp))
+
+        // Content without padding
+        Text(
+            "This text has no padding",
+            modifier = Modifier
+                .background(Color.Yellow)
+        )
         TextField(
             value = enteredText,
             onValueChange = { enteredText = it },

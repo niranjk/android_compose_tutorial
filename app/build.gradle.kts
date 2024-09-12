@@ -90,7 +90,7 @@ dependencies {
     implementation(libs.androidx.runtime.android)
 
     testImplementation(libs.junit)
-    androidTestImplementation(libs.androidx.junit)
+    // androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(platform(libs.compose.bom.v20230300))
     // Test rules and transitive dependencies:
     androidTestImplementation(libs.androidx.ui.test.junit4)
