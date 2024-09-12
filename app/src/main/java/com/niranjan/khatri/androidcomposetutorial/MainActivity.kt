@@ -31,6 +31,8 @@ import androidx.navigation.navArgument
 import androidx.navigation.navigation
 import com.niranjan.khatri.androidcomposetutorial.bootcamp.ComposableExpandables
 import com.niranjan.khatri.androidcomposetutorial.bootcamp.ComposeBootcampScreen
+import com.niranjan.khatri.androidcomposetutorial.concepts.predictivebackInAndroid15.MyFirstPredictiveBackScreen
+import com.niranjan.khatri.androidcomposetutorial.concepts.predictivebackInAndroid15.MyPredictiveBackScreen
 import com.niranjan.khatri.androidcomposetutorial.materialdesignsystem.theme.NAppTheme
 import com.niranjan.khatri.androidcomposetutorial.ui.demo.DemoScreen
 import com.niranjan.khatri.androidcomposetutorial.ui.demo.DemoShowScreen
@@ -48,7 +50,7 @@ class MainActivity : ComponentActivity() {
             // Starting Point
             NAppTheme {
                 // Using the Custom App Theme
-                BottomBarScreen()
+               MyFirstPredictiveBackScreen()
             }
         }
     }
