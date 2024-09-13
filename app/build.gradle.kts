@@ -1,12 +1,15 @@
 import java.io.FileInputStream
 import java.util.Properties
 
-
+@Suppress("DSL_SCOPE_VIOLATION")
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
     kotlin("plugin.serialization") version "1.8.10" // Or your desired version
     alias(libs.plugins.compose.compiler)
+    alias(libs.plugins.baselineprofile)
+    alias(libs.plugins.hilt)
+    alias(libs.plugins.secrets)
 }
 
 val keysPropertiesFile: File = rootProject.file("keys.properties")
@@ -60,18 +63,20 @@ android {
     packaging {
         resources {
             excludes += "/META-INF/{AL2.0,LGPL2.1}"
+            excludes += "META-INF/gradle/incremental.annotation.processors"
+            excludes += "META-INF/gradle/incremental.annotation.processors.internal"
         }
-    }
-    composeCompiler {
-        enableStrongSkippingMode = true
     }
 }
 
 dependencies {
+    val composeBom = platform(libs.androidx.compose.bom)
+    implementation(composeBom)
+    androidTestImplementation(composeBom)
+
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx.v270)
     implementation(libs.androidx.activity.compose)
-    implementation(platform(libs.androidx.compose.bom))
     implementation(libs.kotlin.compose.compiler.plugin)
     implementation(libs.androidx.ui)
     implementation(libs.androidx.ui.graphics)
@@ -91,7 +96,6 @@ dependencies {
 
     testImplementation(libs.junit)
     // androidTestImplementation(libs.androidx.junit)
-    androidTestImplementation(platform(libs.compose.bom.v20230300))
     // Test rules and transitive dependencies:
     androidTestImplementation(libs.androidx.ui.test.junit4)
     debugImplementation(libs.androidx.ui.tooling)
@@ -104,14 +108,38 @@ dependencies {
     implementation(libs.ktor.client.logging)
     implementation(libs.ktor.serialization.kotlinx.json)
     implementation(libs.ktor.client.android)
-    implementation(libs.image.coil)
+    // Coil
+    implementation(libs.coil)
+    implementation(libs.coil.compose)
 
     implementation(libs.accompanist.pager) // For pager
     implementation(libs.accompanist.pager.indicators) // For indicators
-    // Room
+    // Room -- to be fixed while implementation
     implementation(libs.room.ktx)
     annotationProcessor(libs.room.compiler)
     implementation(libs.room.runtime)
+    // Hilt
+    implementation(libs.hilt.android)
+    implementation(libs.hilt.navigation.compose)
+    implementation(libs.hilt.compiler)
+    // Glance
+    implementation(libs.androidx.glance.appwidget)
+    implementation(libs.androidx.glance.material3)
+    implementation(libs.hilt.android)
+    implementation(libs.hilt.navigation.compose)
+    implementation(libs.hilt.compiler)
+
+    // Splash
+    implementation(libs.splashscreen)
+    implementation(libs.concurrent.kts)
+
+    // Media
+    implementation(libs.media3.common)
+    implementation(libs.media3.effect)
+    implementation(libs.media3.exoplayer)
+    implementation(libs.media3.transformer)
+    implementation(libs.media3.ui)
+
     // test
     implementation(libs.ktor.client.mock)
 }
