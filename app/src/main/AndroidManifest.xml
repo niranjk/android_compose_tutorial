@@ -34,6 +34,25 @@
         <activity android:name=".mvvm.DogMVVMActivity"/>
         <activity android:name=".mvi.FactMVIActivity"/>
         <activity android:name=".clean_architecture.CleanArchitectureActivity"/>
+        <receiver android:name=".chatapp.widget.ChatAppWidgetReceiver"
+            android:exported="true"
+            android:label="Chat App"
+            >
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/chat_widget_info" />
+        </receiver>
+
+        <activity android:name=".chatapp.widget.ChatAppWidgetConfigActivity"
+            android:taskAffinity=""
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_CONFIGURE"/>
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>

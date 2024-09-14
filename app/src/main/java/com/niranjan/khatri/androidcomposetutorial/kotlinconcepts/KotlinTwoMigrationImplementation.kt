@@ -1,6 +1,5 @@
 package com.niranjan.khatri.androidcomposetutorial.kotlinconcepts
 
-import com.niranjan.khatri.androidcomposetutorial.mvi.model.FactState
 import java.io.File
 import java.io.IOException
 

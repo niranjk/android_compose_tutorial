@@ -70,6 +70,7 @@ android {
 }
 
 dependencies {
+    implementation(libs.androidx.graphics.shapes.android)
     val composeBom = platform(libs.androidx.compose.bom)
     implementation(composeBom)
     androidTestImplementation(composeBom)

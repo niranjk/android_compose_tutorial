@@ -1,6 +1,7 @@
 package com.niranjan.khatri.androidcomposetutorial
 
 import android.content.res.Configuration.UI_MODE_NIGHT_YES
+import android.os.Build
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -22,6 +23,8 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
+import androidx.glance.appwidget.updateAll
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
@@ -31,20 +34,26 @@ import androidx.navigation.navArgument
 import androidx.navigation.navigation
 import com.niranjan.khatri.androidcomposetutorial.bootcamp.ComposableExpandables
 import com.niranjan.khatri.androidcomposetutorial.bootcamp.ComposeBootcampScreen
+import com.niranjan.khatri.androidcomposetutorial.chatapp.widget.ChatAppWidget
 import com.niranjan.khatri.androidcomposetutorial.concepts.predictivebackInAndroid15.MyFirstPredictiveBackScreen
-import com.niranjan.khatri.androidcomposetutorial.concepts.predictivebackInAndroid15.MyPredictiveBackScreen
 import com.niranjan.khatri.androidcomposetutorial.materialdesignsystem.theme.NAppTheme
 import com.niranjan.khatri.androidcomposetutorial.ui.demo.DemoScreen
 import com.niranjan.khatri.androidcomposetutorial.ui.demo.DemoShowScreen
 import com.niranjan.khatri.androidcomposetutorial.ui.home.BottomNavigationScreen
 import com.niranjan.khatri.androidcomposetutorial.ui.home.HomeScreen
 import com.niranjan.khatri.androidcomposetutorial.ui.theme.AndroidComposeTutorialTheme
+import kotlinx.coroutines.runBlocking
 
 class MainActivity : ComponentActivity() {
     @OptIn(ExperimentalMaterial3WindowSizeClassApi::class)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        // splash screen
+        installSplashScreen()
         enableEdgeToEdge()
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+            window.isNavigationBarContrastEnforced = false
+        }
         // Setting the content
         setContent {
             // Starting Point
