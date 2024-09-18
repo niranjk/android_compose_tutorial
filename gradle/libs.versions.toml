@@ -75,6 +75,7 @@ coreI18n = "1.0.0-alpha01"
 lifecycleViewmodelAndroid = "2.8.5"
 runtimeAndroid = "1.7.0"
 graphicsShapesAndroid = "1.0.1"
+workRuntimeKtx = "2.9.1"
 
 [libraries]
 accompanist-pager = { module = "com.google.accompanist:accompanist-pager", version.ref = "accompanistPager" }
@@ -175,6 +176,7 @@ ktlint = "com.pinterest.ktlint:ktlint-cli:1.1.1" # Used in build.gradle.kts
 generativeai = { group = "com.google.ai.client.generativeai", name = "generativeai", version.ref = "generativeai"}
 datastore = { group = "androidx.datastore", name = "datastore-preferences", version.ref = "datastore"}
 androidx-graphics-shapes-android = { group = "androidx.graphics", name = "graphics-shapes-android", version.ref = "graphicsShapesAndroid" }
+androidx-work-runtime-ktx = { group = "androidx.work", name = "work-runtime-ktx", version.ref = "workRuntimeKtx" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "gradle" }

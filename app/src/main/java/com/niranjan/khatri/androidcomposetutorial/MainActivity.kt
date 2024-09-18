@@ -1,5 +1,8 @@
 package com.niranjan.khatri.androidcomposetutorial
 
+
+import android.app.Service
+import android.content.Intent
 import android.content.res.Configuration.UI_MODE_NIGHT_YES
 import android.os.Build
 import android.os.Bundle
@@ -23,6 +26,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.core.content.ContextCompat
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.glance.appwidget.updateAll
 import androidx.navigation.NavGraphBuilder
@@ -35,6 +39,7 @@ import androidx.navigation.navigation
 import com.niranjan.khatri.androidcomposetutorial.bootcamp.ComposableExpandables
 import com.niranjan.khatri.androidcomposetutorial.bootcamp.ComposeBootcampScreen
 import com.niranjan.khatri.androidcomposetutorial.chatapp.widget.ChatAppWidget
+import com.niranjan.khatri.androidcomposetutorial.concepts.backgroundwork.MyMediaProcessingService
 import com.niranjan.khatri.androidcomposetutorial.concepts.predictivebackInAndroid15.MyFirstPredictiveBackScreen
 import com.niranjan.khatri.androidcomposetutorial.materialdesignsystem.theme.NAppTheme
 import com.niranjan.khatri.androidcomposetutorial.ui.demo.DemoScreen

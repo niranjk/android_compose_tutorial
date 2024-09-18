@@ -18,11 +18,11 @@ keysProperties.load(FileInputStream(keysPropertiesFile))
 
 android {
     namespace = "com.niranjan.khatri.androidcomposetutorial"
-    compileSdk = 34
+    compileSdk = 35
     defaultConfig {
         applicationId = "com.niranjan.khatri.androidcomposetutorial"
         minSdk = 24
-        targetSdk = 34
+        targetSdk = 35
         versionCode = 1
         versionName = "1.0"
 
@@ -71,6 +71,7 @@ android {
 
 dependencies {
     implementation(libs.androidx.graphics.shapes.android)
+    implementation(libs.androidx.work.runtime.ktx)
     val composeBom = platform(libs.androidx.compose.bom)
     implementation(composeBom)
     androidTestImplementation(composeBom)
