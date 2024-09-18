@@ -5,7 +5,7 @@ import java.util.Properties
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
-    kotlin("plugin.serialization") version "1.8.10" // Or your desired version
+    alias(libs.plugins.jetbrains.kotlin.serialization)
     alias(libs.plugins.compose.compiler)
     alias(libs.plugins.baselineprofile)
     alias(libs.plugins.hilt)
@@ -142,6 +142,8 @@ dependencies {
     implementation(libs.media3.transformer)
     implementation(libs.media3.ui)
 
+    // Kotlin serialization
+    implementation(libs.kotlinx.serialization.json)
     // test
     implementation(libs.ktor.client.mock)
 }

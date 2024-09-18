@@ -7,6 +7,7 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
+import androidx.compose.compiler.plugins.kotlin.EmptyFunctionMetrics.composable
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.padding
@@ -27,13 +28,16 @@ import androidx.compose.ui.unit.dp
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.NavHostController
+import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
+import androidx.navigation.navDeepLink
 import androidx.navigation.navigation
 import com.niranjan.khatri.androidcomposetutorial.bootcamp.ComposableExpandables
 import com.niranjan.khatri.androidcomposetutorial.bootcamp.ComposeBootcampScreen
+import com.niranjan.khatri.androidcomposetutorial.concepts.navigation.AppNavigation
 import com.niranjan.khatri.androidcomposetutorial.concepts.predictivebackInAndroid15.MyFirstPredictiveBackScreen
 import com.niranjan.khatri.androidcomposetutorial.materialdesignsystem.theme.NAppTheme
 import com.niranjan.khatri.androidcomposetutorial.ui.demo.DemoScreen
@@ -56,8 +60,7 @@ class MainActivity : ComponentActivity() {
         setContent {
             // Starting Point
             NAppTheme {
-                // Using the Custom App Theme
-               MyFirstPredictiveBackScreen()
+                AppNavigation()
             }
         }
     }

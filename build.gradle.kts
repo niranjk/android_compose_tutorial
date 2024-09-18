@@ -18,6 +18,7 @@ plugins {
     id("com.android.application") version "8.4.0" apply false
     id("org.jetbrains.kotlin.android") version "1.8.10" apply false
     alias(libs.plugins.compose.compiler) apply false
+    alias(libs.plugins.jetbrains.kotlin.serialization) apply false
 }
 
 detekt {
