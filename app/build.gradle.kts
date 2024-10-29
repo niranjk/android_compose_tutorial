@@ -25,8 +25,8 @@ android {
         targetSdk = 35
         versionCode = 1
         versionName = "1.0"
-
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner = "androidx.benchmark.junit4.AndroidBenchmarkRunner"
+        testInstrumentationRunnerArguments["androidx.benchmark.suppressErrors"] = "EMULATOR"
         vectorDrawables {
             useSupportLibrary = true
         }
@@ -55,6 +55,13 @@ android {
     }
     kotlinOptions {
         jvmTarget = "17" // Update to 17 or higher if your project supports it
+    }
+    // For Macrobenchmark
+    testOptions {
+        animationsDisabled = true
+    }
+    tasks.withType<Test> {
+        useJUnitPlatform()
     }
     buildFeatures {
         compose = true
@@ -144,6 +151,9 @@ dependencies {
 
     // Kotlin serialization
     implementation(libs.kotlinx.serialization.json)
+
+    androidTestImplementation(libs.androidx.benchmark.junit4)
+    debugImplementation(libs.androidx.benchmark.macro.junit4.v120)
     // test
     implementation(libs.ktor.client.mock)
 }
