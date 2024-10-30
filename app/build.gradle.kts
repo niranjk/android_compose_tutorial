@@ -79,6 +79,9 @@ android {
 dependencies {
     implementation(libs.androidx.graphics.shapes.android)
     implementation(libs.androidx.work.runtime.ktx)
+    implementation(libs.androidx.material3.adaptive.navigation.suite.android)
+    implementation(libs.androidx.adaptive.layout.android)
+    implementation(libs.androidx.adaptive.navigation.android)
     val composeBom = platform(libs.androidx.compose.bom)
     implementation(composeBom)
     androidTestImplementation(composeBom)
