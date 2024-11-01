@@ -35,6 +35,7 @@ import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
 import androidx.navigation.navDeepLink
 import androidx.navigation.navigation
+import com.niranjan.khatri.androidcomposetutorial.advanced.HeavyCalculationComposable
 import com.niranjan.khatri.androidcomposetutorial.bootcamp.ComposableExpandables
 import com.niranjan.khatri.androidcomposetutorial.bootcamp.ComposeBootcampScreen
 import com.niranjan.khatri.androidcomposetutorial.concepts.navigation.AppNavigation
@@ -60,7 +61,7 @@ class MainActivity : ComponentActivity() {
         setContent {
             // Starting Point
             NAppTheme {
-                AppNavigation()
+                HeavyCalculationComposable()
             }
         }
     }
